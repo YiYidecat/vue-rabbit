@@ -5,11 +5,12 @@ import {useCategoryStore} from "@/stores/category.js";
 //使用pinia中的数据
 const categoryStore = useCategoryStore();
 
-// 吸顶导航
+// 吸顶导航获取滚动距离
 const {y} = useScroll(window)
 </script>
 
 <template>
+  <!-- 根据滚动距离判断是否吸顶 -->
   <div class="app-header-sticky" :class="{show: y>78 }">
     <div class="container">
       <RouterLink class="logo" to="/"/>

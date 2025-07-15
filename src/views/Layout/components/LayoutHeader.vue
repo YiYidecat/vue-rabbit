@@ -1,6 +1,22 @@
 <script setup>
 import {useCategoryStore} from "@/stores/category.js";
 
+//以下这些访问导航列表的代码写在了sores->category.js文件当中
+// import { getCategoryAPI } from "@/apis/layout";
+// import { onMounted, ref } from 'vue'
+
+
+// const categoryList=ref([])
+// const  getCategory = async () => {
+//   const res = await getCategoryAPI();
+//   categoryList.value = res.data.result;
+// }
+
+// onMounted(() => {
+//   getCategory();
+// })
+
+
 //使用pinia中的数据
 const categoryStore = useCategoryStore();
 
