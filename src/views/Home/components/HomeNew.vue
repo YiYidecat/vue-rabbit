@@ -2,7 +2,7 @@
 import HomePanel from "@/views/Home/components/HomePanel.vue";
 import {findNewAPI} from "@/apis/home.js";
 import {ref, onMounted} from 'vue'
-//获取数据
+//异步获取数据
 const newList = ref([])
 const getNewList = async () => {
   const res = await findNewAPI()
