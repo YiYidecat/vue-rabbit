@@ -2,6 +2,7 @@
 import GoodsItem from '../Home/components/GoodsItem.vue'
 import { useBanner } from './composables/useBanner';
 import {useCategory} from "./composables/useCategory"
+
 const {bannerList} = useBanner()
 const {categoryData} = useCategory()
 

@@ -7,6 +7,7 @@ export function useBanner () {
 
   const getBanner = async () => {
     const res = await getBannerAPI({
+      //默认为1，商品为2
       distributionSite: "2"
     })
     bannerList.value = res.result

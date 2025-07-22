@@ -15,6 +15,7 @@ export function useCategory() {
   }
   onMounted(() => getCategory());
 
+  //路由参数更新时，获取新的分类数据，把分类数据接口重新发送，这里使用的是to对象，这与上面的route传参的时候要进行区分
   onBeforeRouteUpdate((to) => {
     getCategory(to.params.id)
   });

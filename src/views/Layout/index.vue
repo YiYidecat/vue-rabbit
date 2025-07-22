@@ -19,6 +19,9 @@ onMounted(() => categoryStore.getCategory())
   <LayoutFixed/>
   <LayoutNav/>
   <LayoutHeader/>
+  <!-- 添加key破坏复用机制
+  <RouterView key="$route.path"/> -->
+  <!-- 二级路由出口 -->
   <RouterView/>
   <LayoutFooter/>
 </template>
