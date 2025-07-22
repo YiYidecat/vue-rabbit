@@ -29,10 +29,12 @@ onMounted(() => {
   getGoodList()
 })
 
+//tab切换回调
 const tabChange = () => {
   reqData.value.page = 1
   getGoodList()
 }
+
 //加载触底加载新数据
 const disabled = ref(false)
 const load = async() => {
