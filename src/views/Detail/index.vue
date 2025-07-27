@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router';
 import DetailHot from './components/DetailHot/index.vue'
 import { useCartStore } from "@/stores/carStore";
 import { ElMessage } from "element-plus";
-import imageView from '@/components/imageView/index.vue'
+
 // import { findnewCartList } from "@/apis/cart";
 
 const cartStore = useCartStore()
@@ -17,6 +17,7 @@ const getGoods = async() => {
   
 }
 let SkuObj = {}
+//sku规格被操作时 
 const SkuChange = (sku) => {
   SkuObj = sku
 }
@@ -75,7 +76,7 @@ const countChange = (count) => {
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-              <imageView :imageList="goods.mainPictures"/>
+              <XtxImageView :imageList="goods.mainPictures"/>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
