@@ -30,12 +30,19 @@ export const useCartStore = defineStore("cart",() => {
     }
   }
 
+  // 定义删除购物车的action——action
   const delCart = async(skuId) => {
     if(isLogin.value) {
       await deleteCartList([skuId])
       const res = await findnewCartList()
       cartList.value = res.result
     }else {
+    // 未登录删除购物车
+    // 先判断购物车中是否有该商品,如果有则删除
+    // 如果没有则不做任何操作
+    if(!cartList.value.some(item => item.skuId === skuId)) return
+    // 找到该商品在购物车中的索引
+    // splice方法删除该商品
       const idx = cartList.value.findIndex((item) => skuId === item.skuId)
     cartList.value.splice(idx,1)
     }
