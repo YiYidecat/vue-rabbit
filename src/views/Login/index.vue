@@ -27,7 +27,7 @@ const rules = {
   ]
 }
 const FormRef = ref()
-const login = () => {
+const login = async () => {
   FormRef.value.validate((valid) => {
     UserStore.getUserInfo(Form.value)
     if(valid) {

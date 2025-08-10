@@ -5,6 +5,8 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+//注册pinia持久化插件
+import piniaPersistedstate from 'pinia-plugin-persistedstate'
 
 //引入初始化样式文件
 import "@/styles/common.scss"
@@ -22,9 +24,15 @@ import { componentPlugin } from './components'
 //     console.log(res)
 // })              
 
-const app = createApp(App)
 
-app.use(createPinia())
+
+
+const app = createApp(App)
+const pinia = createPinia()
+
+//注册pinia持久化插件
+pinia.use(piniaPersistedstate)
+app.use(pinia)
 app.use(router)
 app.use(lazyPlugin)
 app.use(componentPlugin)
