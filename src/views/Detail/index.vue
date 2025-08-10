@@ -16,12 +16,19 @@ const getGoods = async() => {
   goods.value = res.result
   
 }
+
+
+//购物车相关模块（加入购物车）
+
+// 购物车对象
 let SkuObj = {}
 //sku规格被操作时 
 const SkuChange = (sku) => {
   SkuObj = sku
 }
+// 添加购物车方法
 const addCart = () => {
+  // 如果skuId存在则规格已经全部选好了
   if(SkuObj.skuId) {
     cartStore.addCart({
       id:goods.value.id,
@@ -34,18 +41,22 @@ const addCart = () => {
       selected:true
     })
   }else {
-    ElMessage.error("请输入规格")
+    // 如果skuId不存在则规格没有选好
+    // 提示用户选择规格
+    ElMessage.warning("请输入规格")
   }
 }
 onMounted(() => {
   getGoods()
 })
 
+
 const count = ref(1)
 const countChange = (count) => {
   console.log(count);
   
 }
+
 </script>
 
 <template>
