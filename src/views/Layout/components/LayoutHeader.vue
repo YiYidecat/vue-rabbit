@@ -1,7 +1,8 @@
 <script setup>
 import {useCategoryStore} from "@/stores/category.js";
+import HeaderCart from '@/views/Layout/HeadCart/index.vue';
 
-//以下这些访问导航列表的代码写在了sores->category.js文件当中
+//以下这些访问导航列表的代码写在了stores->category.js文件当中
 // import { getCategoryAPI } from "@/apis/layout";
 // import { onMounted, ref } from 'vue'
 
@@ -38,7 +39,9 @@ const categoryStore = useCategoryStore();
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜">
       </div>
+
       <!-- 头部购物车 -->
+      <HeaderCart></HeaderCart>
 
     </div>
   </header>
