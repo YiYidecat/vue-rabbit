@@ -1,4 +1,6 @@
 <script setup>
+import { useUserStore } from '@/stores/user';
+const UserStore = useUserStore();
 
 </script>
 
@@ -6,9 +8,10 @@
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <!-- 多模板渲染 ，区分登录状态-->
-        <template v-if="false">
-          <li><a href="javascript:;"><i class=" iconfont icon-user"></i>周杰伦</a></li>
+        <!-- 多模板渲染 ，用token区分登录状态-->
+        <template v-if="UserStore.userInfo.token">
+          <li><a href="javascript:;"><i class=" iconfont icon-user"></i>{{ UserStore.userInfo.account }}</a></li>
+
           <li>
             <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
               <template #reference>
@@ -19,6 +22,7 @@
           <li><a href="javascript:;">我的订单</a></li>
           <li><a href="javascript:;">会员中心</a></li>
         </template>
+        <!-- 未登录前的模板 -->
         <template v-else>
           <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
           <li><a href="javascript:;">帮助中心</a></li>
