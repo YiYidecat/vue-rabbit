@@ -48,16 +48,21 @@ export const useCartStore = defineStore("cart",() => {
     }
     
   }
+
+  //计算属性——购物车商品总数量
   const allCount = computed(() => {
-    return  cartList.value.reduce((total,item) => {
-        return total + item.count
-      },0)
+    return  cartList.value.reduce((total,item) => {return total + item.count},0)
   })
+  //计算属性——购物车商品总价格
+  // 计算总价时需要遍历购物车列表，计算每个商品的价格
+  // 商品价格 = 商品数量 * 商品单价
+  // 最后将所有商品的价格相加
   const allPrice = computed(() => {
-    return cartList.value.reduce((total,item) => {
-      return total + item.count * item.price
-    },0)
+    //reduce方法遍历购物车列表，将数组里的每个商品的价格累加
+    return cartList.value.reduce((total,item) => {return total + item.count * item.price},0)
   })
+
+
   const singleCheck = (skuId) => {
     const item = cartList.value.find((item) => item.skuId === skuId)
     if(item) {
