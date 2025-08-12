@@ -62,13 +62,15 @@ export const useCartStore = defineStore("cart",() => {
     return cartList.value.reduce((total,item) => {return total + item.count * item.price},0)
   })
 
-
+  // 定义单选框的action——action
   const singleCheck = (skuId) => {
+    // 如果购物车列表中有该商品，则将该商品的选中状态取反
     const item = cartList.value.find((item) => item.skuId === skuId)
     if(item) {
       item.selected = !item.selected
     }
   }
+
   const allSelected = computed(() => cartList.value.every((item) => item.selected))
   const allCheck = (selected) => {
     cartList.value.forEach(item => item.selected = selected)

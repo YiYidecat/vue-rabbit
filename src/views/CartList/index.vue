@@ -3,9 +3,11 @@ import { useCartStore } from '@/stores/carStore';
 // import { ref } from 'vue';
   
 const cartStore = useCartStore()
+//单选回溯
 const singleCheck = (skuId)=> {
   cartStore.singleCheck(skuId)
 }
+
 </script>
 
 <template>
@@ -29,6 +31,7 @@ const singleCheck = (skuId)=> {
           <tbody>
             <tr v-for="i in cartStore.cartList" :key="i.id">
               <td>
+                <!-- 单选框 -->
                 <el-checkbox :model-value="i.selected" @Change="singleCheck(i.skuId)"/>
               </td>
               <td>
