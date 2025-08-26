@@ -13,6 +13,7 @@ export const useUserStore = defineStore('user',() => {
     const getUserInfo = async(Form) => {
     const res = await loginAPI(Form)
     userInfo.value = res.result
+    // 合并购物车
     mergeCartAPI(cartStore.cartList.map((item) => {
       return {
         skuId:item.skuId,
@@ -27,6 +28,7 @@ export const useUserStore = defineStore('user',() => {
   const cartStore = useCartStore()
   const clearUserInfo = () => {
     userInfo.value = {}
+    //执行清空购物车的action
     cartStore.clearCartList()
   }
     //3.以对象的格式把action return出去

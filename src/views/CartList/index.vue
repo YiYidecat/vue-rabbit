@@ -8,6 +8,10 @@ const singleCheck = (skuId)=> {
   cartStore.singleCheck(skuId)
 }
 
+const allCheck = (selected) => {
+  cartStore.allCheck(selected)
+}
+
 </script>
 
 <template>
@@ -18,7 +22,8 @@ const singleCheck = (skuId)=> {
           <thead>
             <tr>
               <th width="120">
-                <el-checkbox :model-value="cartStore.allSelected" @change="cartStore.allCheck"/>
+                <!-- @change可以自动传参，所以这里没有对allcheck手动传形参 -->
+                <el-checkbox :model-value="cartStore.allSelected" @change="allCheck"/>
               </th>
               <th width="400">商品信息</th>
               <th width="220">单价</th>

@@ -1,4 +1,5 @@
 import request from '@/utils/http'
+
 //购物车加入数据
 export const insertCartAPI = (goods) => {
   const {skuId,count} = goods
@@ -11,16 +12,14 @@ export const insertCartAPI = (goods) => {
     }
   })
 }
-
 //获取购物车列表
-
 export const findnewCartList = () => {
   return request({
     url:"/member/cart",
     method:"GET"
   })
 }
-
+//删除购物车列表
 export const deleteCartList = (ids) => {
   return request({
     url:"/member/cart",
